@@ -1,4 +1,4 @@
-package chapter07;
+package chapter07.readFourTimes;
 
 class Outer2 {
     static class Inner {

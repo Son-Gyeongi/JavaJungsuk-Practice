@@ -1,4 +1,4 @@
-package chapter07;
+package chapter07.readFourTimes;
 
 public class SutdaDeck {
     final int CARD_NUM = 20;

@@ -1,4 +1,4 @@
-package chapter07;
+package chapter07.readFourTimes;
 
 class Outer3 {
     int value = 10;
