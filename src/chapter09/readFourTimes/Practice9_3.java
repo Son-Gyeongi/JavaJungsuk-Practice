@@ -7,7 +7,7 @@ public class Practice9_3 {
 
         while (src.indexOf(target, pos) != -1) {
             count++;
-            pos = src.indexOf(target, pos) + 1;
+            pos = src.indexOf(target, pos) + 1; // 1 보다는 target.length 가 좋겠다.
         }
 
         return count;
