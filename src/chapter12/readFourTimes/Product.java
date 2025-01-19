@@ -1,4 +1,4 @@
-package chapter12;
+package chapter12.readFourTimes;
 
 public class Product {
     int price; // 제품의 가격
