@@ -1,4 +1,4 @@
-package chapter13.readFourTimes.exercise;
+package chapter13.readFourTimes.example;
 
 import java.util.ArrayList;
 

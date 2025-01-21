@@ -1,4 +1,4 @@
-package chapter13.readFourTimes.exercise;
+package chapter13.readFourTimes.example;
 
 public class Ex13_15 {
     public static void main(String[] args) throws Exception {

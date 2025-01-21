@@ -1,4 +1,4 @@
-package chapter13.readFourTimes.exercise;
+package chapter13.readFourTimes.example;
 
 public class Cook2 implements Runnable {
     private Table2 table;
