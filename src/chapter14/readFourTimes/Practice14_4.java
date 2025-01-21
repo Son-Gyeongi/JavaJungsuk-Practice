@@ -22,6 +22,13 @@ public class Practice14_4 {
                 .filter(s -> (Integer.parseInt(s.split(" ")[0]) + Integer.parseInt(s.split(" ")[1])) == 6)
                 .forEach(s -> System.out.println("[" + s.split(" ")[0] + "," + s.split(" ")[1] + "]"));
 
+        // stream 안에 String[] 이 있다. -> flatMap 으로 Stream<String> 으로 만들어서 요소 하나씩 검사해야 한다.
+        Arrays.stream(dice1)
+                .mapToObj(d1 -> Arrays.stream(dice2)
+                        .mapToObj(d2 -> d1 + " " + d2)
+                        .toArray(String[]::new))
+                .forEach(arr -> System.out.println(Arrays.toString(arr)));
+
         /*
         이중 for 문
         for (int i = 0; i < dice1.length; i++) {
