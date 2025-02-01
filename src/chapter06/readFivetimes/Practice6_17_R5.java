@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Practice6_17_R5 {
     public static int[] shuffle(int[] arr) {
+        // 매개변수가 있으면 유효성 검사하기
+        if (arr == null || arr.length == 0) return arr;
+
         for (int i = 0; i < arr.length; i++) {
             int index = (int) (Math.random() * arr.length);
 
@@ -21,5 +24,6 @@ public class Practice6_17_R5 {
 
         int[] result = shuffle(original);
         System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(new int[]{}));
     }
 }
