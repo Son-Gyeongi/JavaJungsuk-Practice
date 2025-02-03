@@ -8,6 +8,12 @@ public class SutdaDeck7_1_R5 {
     SutdaDeck7_1_R5() {
         // SutdaCard 배열 초기화
         for (int i = 0; i < cards.length; i++) {
+            int num = i % 10 + 1;
+            boolean isKwang = (i < 10) && (num == 1 || num == 3 || num == 8);
+            cards[i] = new SutdaCard7_1_R5(num, isKwang);
+
+            /*
+            내 답
             int num = i + 1;
 
             if (num == 1 || num == 3 || num == 8) {
@@ -16,6 +22,7 @@ public class SutdaDeck7_1_R5 {
                 num = num > 10 ? num - 10 : num;
                 cards[i] = new SutdaCard7_1_R5(num, false);
             }
+             */
         }
     }
 
@@ -32,7 +39,9 @@ public class SutdaDeck7_1_R5 {
 
     // 배열 cards 에서 지정된 위치의 SutdaCard 를 반환한다.
     public SutdaCard7_1_R5 pick(int index) {
-        // index - 위치
+        // index 유효성 검사를 한다.
+        // 매개 변수가 있는 메서드는 반드시 작업 전에 유효성 검사를 해야한다.
+        if (!(0 <= index && index < cards.length)) return null;
         return cards[index];
     }
 
