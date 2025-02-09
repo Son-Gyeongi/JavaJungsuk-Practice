@@ -17,6 +17,7 @@ class SutdaCard11_5_R5 {
 
     /*
     HashSet 에 중복된 카드가 저장되지 않도록 hashCode() 오버라이딩
+    해시 알고리즘을 사용하는 HashSet 에 담을 때는 반드시 hashCode()도 오버라이딩 해줘야 한다.
      */
     @Override
     public int hashCode() {
