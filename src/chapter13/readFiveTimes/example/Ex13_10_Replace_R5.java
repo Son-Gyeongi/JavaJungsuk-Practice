@@ -26,6 +26,10 @@ public class Ex13_10_Replace_R5 {
             r1.resume(); // 쓰레드 th1이 다시 동작하도록 한다.
             Thread.sleep(3000);
             r1.stop(); // 쓰레드 th1을 강제종료시킨다.
+            /*
+            코드 바뀌기 전 따라서 r2가 종료되지 않는 이유는
+            r2.wait()에서 깨어나지 않았기 때문이며, 이를 해결하려면 notifyAll()을 적절히 사용해야 함.
+             */
             r2.stop();
             Thread.sleep(2000);
             r3.stop();
@@ -42,16 +46,17 @@ class RunImplEx10_Replace implements Runnable {
     }
 
     public void resume() {
-        suspended = false;
         synchronized (this) {
-            notify();
+            suspended = false;
+            notifyAll(); // 모든 대기 중인 쓰레드가 깨어남
         }
     }
 
     public void stop() {
-        stopped = true;
         synchronized (this) {
-            notify();
+            stopped = true;
+            suspended = false; // 🔹 멈출 때 suspend를 false로 만들어 wait()에서 빠져나오게 함
+            notifyAll();
         }
     }
 
@@ -59,7 +64,7 @@ class RunImplEx10_Replace implements Runnable {
     public void run() {
         while (!stopped) {
             synchronized (this) {
-                while (suspended) { // 일시정지 ture
+                while (suspended && !stopped) { // 일시정지 ture  // 🔹 stopped 상태도 확인하도록 수정
                     try {
                         wait(); // suspend() 되면 대기
                     } catch (InterruptedException e) {
@@ -67,6 +72,8 @@ class RunImplEx10_Replace implements Runnable {
                     }
                 }
             }
+            if (stopped) break; // 🔹 stopped가 true이면 루프 종료
+
             System.out.println(Thread.currentThread().getName());
             try {
                 Thread.sleep(1000);
