@@ -21,15 +21,28 @@ public class FileMergeTest15_3_R5 {
         try {
             String currentDir = System.getProperty("user.dir"); // 현재 프로그램이 실행중인 디렉토리
             String fileName = args[0];
-            File file = new File(currentDir, fileName);
+            File resultFile = new File(currentDir, fileName);
 
             Vector<FileInputStream> vector = new Vector<>();
             for (int i = 1; i < args.length; i++) {
-                vector.add(new FileInputStream(args[i]));
+                File file = new File(args[i]);
+
+                // file 이 존재하는지 확인
+                // 사용자로 부터 입력받은 값은 항상 유효성체크를 해주어야한다.
+                // 입력받은 파일이 존재하지 않을 수도 있기 때문이다.
+                if (file.exists()) {
+                    vector.add(new FileInputStream(args[i]));
+                } else {
+                    System.out.println(args[i] + " - 존재하지 않는 파일입니다.");
+                    System.exit(0);
+                }
             }
 
+            /*
+            여러 개의 파일을 하나로 연결하기 위해서 SequenceInputStream 사용
+             */
             SequenceInputStream sequenceInputStream = new SequenceInputStream(vector.elements());
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            FileOutputStream fileOutputStream = new FileOutputStream(resultFile);
             // FileOutputStream(파일이름, 이어쓰기) 이어쓰기가 기본으로 false 그러므로 덮어쓴다.
 
             int data = 0;

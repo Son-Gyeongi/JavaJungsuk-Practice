@@ -75,7 +75,13 @@ public class Practice15_4_R5 {
 //            System.out.println("curDir.getParentFile() = " + curDir.getParentFile());
 
             File parentFile = curDir.getParentFile();
-            curDir = parentFile;
+
+            if (parentFile == null) {
+                // 항상 안될 수 있는 경우도 생각해야 한다.
+                System.out.println("유효하지 않은 디렉토리입니다.");
+            } else {
+                curDir = parentFile;
+            }
         } else if (subDir.equals(".")) {
             // 2. 입력된 디렉토리(subDir)가 "." 이면, 단순히 현재 디렉토리의 경로를 화면에 출력한다.
             System.out.println(curDir);
@@ -84,7 +90,8 @@ public class Practice15_4_R5 {
             //  3.1 입력된 디렉토리(subDir)가 현재 디렉토리의 하위 디렉토리인지 확인한다.
             File checkDir = new File(curDir + subDir);
 
-            if (checkDir.isDirectory()) {
+            // checkDir 이 존재하는지 디렉토리인지 검사
+            if (checkDir.exists() && checkDir.isDirectory()) {
                 // 3.2 확인 결과가 true 이면, 현재 디렉토리(curDir)을 입력된 디렉토리(subDir)로 변경한다.
                 curDir = checkDir;
             } else {
