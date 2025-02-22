@@ -11,6 +11,7 @@ public class Student_C6_R6 {
     int eng; // 영어점수
     int math; // 수학점수
 
+    // 기본 생성자
     public Student_C6_R6() {
     }
 
@@ -33,6 +34,6 @@ public class Student_C6_R6 {
     }
 
     public float getAverage() {
-        return (int) (getTotal() / 3f * 10 + 0.5) / 10f;
+        return (int) (getTotal() / 3f * 10 + 0.5f) / 10f;
     }
 }

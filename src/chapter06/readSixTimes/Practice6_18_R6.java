@@ -2,7 +2,7 @@ package chapter06.readSixTimes;
 
 public class Practice6_18_R6 {
     public static boolean isNumber(String str) {
-        if (str == null || str.isEmpty()) {
+        if (str == null || str.isEmpty()) { // str.isEmpty() 는 str.equals("") 와 같다.
             return false;
         }
 

@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class Practice6_17_R6 {
     public static int[] shuffle(int[] arr) {
+        // 매개변수가 있는 메서드의 경우 유효성 검사하기
+        if (arr == null || arr.length == 0) {
+            return arr;
+        }
+
         for (int i = 0; i < arr.length; i++) {
             int index = (int) (Math.random() * arr.length);
 
