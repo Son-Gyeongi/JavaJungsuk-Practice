@@ -29,8 +29,11 @@ public class Practice9_6_R6 {
             }
 
             // Pattern, Matcher 클래스 사용하기
-            // input 과 정확하게 일치하는 게 아닌 input 양쪽으로 다른 값이 올 수도 있다.
+            // 패턴 생성 - input 과 정확하게 일치하는 게 아닌 input 양쪽으로 다른 값이 올 수도 있다.
             Pattern pattern = Pattern.compile(".*" + input + ".*");
+            // input 을 포함하는 모든 문자열
+            // 정규식 .* - 어떤 문자든 0개 이상 존재할 수 있음, input - 입력값이 문자열에 존재해야 함
+            // . 은 임의의 문자 1개, * 은 0 개 이상 문자 올 수 있다는 뜻
 
             for (int i = 0; i < phoneNumArr.length; i++) {
                 String num = phoneNumArr[i].replace("-", "");
