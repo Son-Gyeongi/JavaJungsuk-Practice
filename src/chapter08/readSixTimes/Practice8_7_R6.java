@@ -14,9 +14,11 @@ public class Practice8_7_R6 {
             count++;
             System.out.print("1과 100의 값을 입력하세요 :");
 
+            // 사용자로부터 값을 입력받을 때 유효성 검사 필수
             try {
                 input = new Scanner(System.in).nextInt();
             } catch (InputMismatchException e) {
+                System.out.println("유효하지 않은 값입니다. 다시 값을 입력해주세요.");
                 continue;
             }
 
