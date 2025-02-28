@@ -17,7 +17,15 @@ class SutdaCard11_5_R6 {
 
     @Override
     public int hashCode() {
-        // String 클래스의 hashCode() 를 사용
+        /*
+        String 클래스의 hashCode() 를 사용
+
+        String 클래스의 hashCode() 는 객체의 주소가 아닌 문자열의 내용을 기반으로
+        해시코드를 생성하므로 문자열의 내용이 같으면 항상 같은 값의 해시코드를 반환한다.
+
+        인스턴스 변수들의 값을 결합한 문자열을 만들고,
+        그 문자열에 대한 hashCode() 를 호출
+         */
         return toString().hashCode();
     }
 
