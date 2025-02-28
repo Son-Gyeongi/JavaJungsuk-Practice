@@ -17,7 +17,7 @@ public class Practice10_2_R6 {
             String input = new Scanner(System.in).nextLine();
 
             try {
-                date = simpleDateFormat1.parse(input);
+                date = simpleDateFormat1.parse(input); // ParseException 이 발생할 수 있다.
                 break;
             } catch (Exception e) {}
         } while (true);
