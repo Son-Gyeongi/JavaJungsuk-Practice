@@ -40,6 +40,9 @@ public class HexaViewer_R6 {
                 count++;
                 if (count % 16 == 0) printStream.println();
             }
+
+            fileInputStream.close();
+            printStream.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

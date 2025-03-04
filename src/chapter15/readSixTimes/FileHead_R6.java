@@ -34,6 +34,8 @@ public class FileHead_R6 {
 
                 System.out.println(i + ":" + line);
             }
+
+            bufferedReader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
