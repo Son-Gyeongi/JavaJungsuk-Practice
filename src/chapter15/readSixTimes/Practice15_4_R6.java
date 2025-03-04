@@ -63,7 +63,7 @@ public class Practice15_4_R6 {
         if (subDir.equals("..")) {
             File parentFile = curDir.getParentFile();
 
-            // TODO 유효성 검사
+            // 유효성 검사 - parentFile 가 존재하지 않을 수 있다.
             if (parentFile.exists() && parentFile.isDirectory()) curDir = parentFile;
         } else if (subDir.equals(".")) {
             System.out.println(curDir);
