@@ -1,12 +1,8 @@
 package chapter15.readSixTimes;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.SequenceInputStream;
+import java.io.*;
 import java.util.Vector;
 
-// TODO 파일마다 한줄씩 띄우기
 public class FileMergeTest_R6 {
     public static void main(String[] args) {
         // file 을 합치는 거라서 파일이 2개 이상은 와야할 거 같아서 2를 포함했다.
@@ -17,7 +13,14 @@ public class FileMergeTest_R6 {
 
         File mergeFileName = new File(args[0]);
 
-        Vector<FileInputStream> vector = new Vector<>();
+        // Vector<FileInputStream> vector = new Vector<>();
+        Vector<InputStream> vector = new Vector<>();
+
+        /*
+        운영 체제별로 줄바꿈 문자가 다르다.
+        Windows 에서 `System.lineSeparator().getBytes()`는 `[13, 10]` (CR, LF)를 반환
+         */
+        byte[] newLine = System.lineSeparator().getBytes();
 
         try {
             for (int i = 1; i < args.length; i++) {
@@ -27,7 +30,14 @@ public class FileMergeTest_R6 {
                  */
                 File f = new File(args[i]);
 
-                if (f.exists()) vector.add(new FileInputStream(args[i]));
+                if (f.exists()) {
+                    vector.add(new FileInputStream(args[i]));
+
+                    // 마지막 파일이 아니라면 줄바꿈 스트림 추가
+                    if (i < args.length - 1) {
+                        vector.add(new ByteArrayInputStream(newLine));
+                    }
+                }
                 else {
                     System.out.println(args[i] + " - 존재하지 않는 파일입니다.");
                     System.exit(0);
