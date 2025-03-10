@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Practice6_17_R7 {
     public static int[] shuffle(int[] arr) {
+        // 유효성 검사
+        if (arr == null || arr.length == 0) return arr;
+
         for (int i = 0; i < arr.length; i++) {
             int index = (int) (Math.random() * arr.length);
 

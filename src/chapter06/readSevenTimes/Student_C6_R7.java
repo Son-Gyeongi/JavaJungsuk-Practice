@@ -11,6 +11,7 @@ public class Student_C6_R7 {
     int eng; // 영어점수
     int math; // 수학점수
 
+    // 기본 생성자
     public Student_C6_R7() {
     }
 

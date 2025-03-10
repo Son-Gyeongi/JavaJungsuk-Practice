@@ -1,21 +1,18 @@
 package chapter06.readSevenTimes;
 
-public class Practice6_18_R7 {
+public class Practice6_18_Answer_R7 {
     public static boolean isNumber(String str) {
         if (str == null || str.isEmpty()) return false; // str.isEmpty()와 str.equals("") 같다.
-
-        boolean b = true;
 
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
             if (!('0' <= ch && ch <= '9')) {
-                b = false;
-                break;
+                return false;
             }
         }
 
-        return b;
+        return true;
     }
 
     public static void main(String[] args) {
