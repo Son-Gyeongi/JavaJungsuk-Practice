@@ -1,17 +1,17 @@
 package chapter07.readSixTimes;
 
 /*
-SutdaCard Chapter06 Read 6th
+SutdaCard Chapter07 Read 6th
  */
-public class SutdaCard_C6_R6 {
+public class SutdaCard_C7_R6 {
     int num;
     boolean isKwang;
 
-    SutdaCard_C6_R6() {
+    SutdaCard_C7_R6() {
         this(1, true);
     }
 
-    public SutdaCard_C6_R6(int num, boolean isKwang) {
+    public SutdaCard_C7_R6(int num, boolean isKwang) {
         this.num = num;
         this.isKwang = isKwang;
     }
