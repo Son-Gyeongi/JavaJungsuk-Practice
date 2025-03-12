@@ -15,6 +15,7 @@ public class Practice8_7_R7 {
             System.out.print("1과 100 사이의 값을 입력하세요 :");
 
             try {
+                // 사용자로부터 값을 입력받는 경우에는 유효성 검사를 철저하게 해야 한다.
                 input = new Scanner(System.in).nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("유효하지 않은 값입니다. 다시 값을 입력해주세요.");
