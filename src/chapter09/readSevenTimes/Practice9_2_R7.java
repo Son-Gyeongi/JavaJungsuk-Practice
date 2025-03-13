@@ -27,7 +27,7 @@ class Point3D9_2_R7 {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Point3D9_2_R7 point) {
+        if (obj instanceof Point3D9_2_R7 point) { // Point3D9_2_R7 point = (Point3D9_2_R7) obj
             return this.x == point.x && this.y == point.y && this.z == point.z;
         }
 

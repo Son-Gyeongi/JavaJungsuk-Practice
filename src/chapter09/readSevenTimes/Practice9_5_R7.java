@@ -4,7 +4,7 @@ public class Practice9_5_R7 {
     public static String delChar(String src, String delCh) {
         if (src == null || src.isEmpty() || delCh == null || delCh.isEmpty()) return src;
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuffer stringBuffer = new StringBuffer(src.length());
 
         for (int i = 0; i < src.length(); i++) {
             if (delCh.indexOf(src.charAt(i)) == -1) {

@@ -26,7 +26,7 @@ class SutdaCard9_1_R7 {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof SutdaCard9_1_R7 sutda) {
+        if (obj instanceof SutdaCard9_1_R7 sutda) { // SutdaCard9_1_R7 sutda = (SutdaCard9_1_R7) obj
             return this.num == sutda.num && this.isKwang == sutda.isKwang;
         }
 

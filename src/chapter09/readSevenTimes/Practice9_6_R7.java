@@ -28,11 +28,11 @@ public class Practice9_6_R7 {
             }
 
             // Pattern, Matcher 클래스를 사용할 것
-            String pattern = ".*" + input + ".*";
+            String pattern = ".*" + input + ".*"; // 입력받은 문자열(input)을 모두 포함하는 문자열
             Pattern compilePattern = Pattern.compile(pattern);
 
             for (int i = 0; i < phoneNumArr.length; i++) {
-                String num = phoneNumArr[i].replace("-", "");
+                String num = phoneNumArr[i].replace("-", ""); // phoneNum 에서 "-"를 제거
                 Matcher matcher = compilePattern.matcher(num);
 
                 /*
@@ -40,7 +40,7 @@ public class Practice9_6_R7 {
                 - 패턴이 일치하는 다음 문자열을 찾는다. 다음 문자열이 있다면 true
                 - 한 문자열에서 여러 패턴을 찾을 수 있다.
                  */
-                if (matcher.find())
+                if (matcher.find()) // 패턴과 일치하면 list 에 phoneNum 추가
                     list.add(phoneNumArr[i]);
 
                 /*
