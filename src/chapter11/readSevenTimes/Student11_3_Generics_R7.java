@@ -1,12 +1,12 @@
 package chapter11.readSevenTimes;
 
-public class Student11_3_R7 implements Comparable {
+public class Student11_3_Generics_R7 implements Comparable<Student11_3_Generics_R7> {
     String name;
     int ban;
     int no;
     int kor, eng, math;
 
-    public Student11_3_R7(String name, int ban, int no, int kor, int eng, int math) {
+    public Student11_3_Generics_R7(String name, int ban, int no, int kor, int eng, int math) {
         this.name = name;
         this.ban = ban;
         this.no = no;
@@ -29,13 +29,10 @@ public class Student11_3_R7 implements Comparable {
     }
 
     // Comparable 인터페이스를 구현해서 이름(name)이 [기본 정렬 기준]이 되도록 하기
+    // 지네릭스 설정하면 형변환 코드 사용하지 않아도 됨
     @Override
-    public int compareTo(Object o) {
-        if (o instanceof Student11_3_R7 student) {
-            // String 클래스의 compareTo() 호출
-            return this.name.compareTo(student.name);
-        }
-
-        return -1;
+    public int compareTo(Student11_3_Generics_R7 student) {
+        // String 클래스의 compareTo() 호출
+        return this.name.compareTo(student.name);
     }
 }

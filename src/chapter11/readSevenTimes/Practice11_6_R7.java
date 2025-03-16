@@ -12,6 +12,7 @@ public class Practice11_6_R7 {
             set.add((int) (Math.random() * 30) + 1 + "");
         }
 
+        // 저장 순서를 유지하는 List 인터페이스를 구현한 클래스 사요 그리고 섞기
         ArrayList<String> list = new ArrayList<>(set);
         Collections.shuffle(list);
         Iterator<String> iterator = list.iterator();
