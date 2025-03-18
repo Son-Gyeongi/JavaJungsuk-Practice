@@ -12,7 +12,7 @@ public class Practice13_5_R7 {
         } catch (Exception e) {}
 
         stopped = true; // th1 쓰레드를 정지시킨다.
-        th1.interrupt(); // sleep() 으로 자고 있는 th1을 깨워서 다시 실행시킨다.
+        th1.interrupt(); // sleep()에 의해 일시정지 상태에 있는 쓰레드를 깨운다. -> 쓰레드 실행 즉시 종료된다.
         System.out.println("stopped");
     }
 }
