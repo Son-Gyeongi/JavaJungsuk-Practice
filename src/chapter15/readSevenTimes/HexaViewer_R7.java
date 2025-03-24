@@ -29,6 +29,8 @@ public class HexaViewer_R7 {
                 // 16개 출력 후 줄바꿈
                 if ((++count) % 16 == 0) out.printf("%n");
             }
+
+            fileInputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

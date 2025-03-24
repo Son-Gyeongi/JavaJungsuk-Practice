@@ -35,6 +35,8 @@ public class FileHead_R7 {
             for (int i = 1; (line = bufferedReader.readLine()) != null && i <= count; i++) {
                 System.out.printf("%d:%s%n", i, line);
             }
+
+            bufferedReader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
