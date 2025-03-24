@@ -1,5 +1,11 @@
 package chapter13.readFourTimes.example;
 
+/*
+페이지 542 Ex13_14 궁금증
+Cook2, Customer2, Table2
+코드는 프로그램이 강제 종료될 때까지 계속 실행되며,
+synchronized, wait(), notify() 메커니즘을 통해 쓰레드 간 조화롭게 작업이 이루어지도록 설계되었다.
+ */
 public class Ex13_15 {
     public static void main(String[] args) throws Exception {
         Table2 table = new Table2();
