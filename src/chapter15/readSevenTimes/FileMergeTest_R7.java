@@ -55,6 +55,9 @@ public class FileMergeTest_R7 {
             while ((ch = sequenceInputStream.read()) != -1) {
                 fileOutputStream.write(ch);
             }
+
+            sequenceInputStream.close();
+            fileOutputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
