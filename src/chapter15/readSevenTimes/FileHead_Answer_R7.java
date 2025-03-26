@@ -23,6 +23,8 @@ public class FileHead_Answer_R7 {
                     System.out.println(i + ":" + line);
                     i++;
                 }
+
+                br.close();
             } else {
                 throw new FileNotFoundException(fileName + "은/는 디렉토리이거나, 존재하지 않는 파일입니다.");
             }
