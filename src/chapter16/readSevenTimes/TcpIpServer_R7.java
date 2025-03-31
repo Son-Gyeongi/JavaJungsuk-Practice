@@ -1,12 +1,11 @@
 package chapter16.readSevenTimes;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 /*
 페이지 694
@@ -37,11 +36,21 @@ public class TcpIpServer_R7 {
                 DataOutputStream dos = new DataOutputStream(out);
 
                 // 원격 소켓(remote socket)에 데이터를 보낸다.
-                dos.writeUTF("[Notice] Test Message1 from Server");
+//                dos.writeUTF("[Notice] Test Message1 from Server");
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("입력해주세요>> ");
+                String message = scanner.nextLine();
+                dos.writeUTF(message);
                 System.out.println(getTime() + "데이터를 전송했습니다.");
+
+                // 소켓의 입력스트림을 얻는다.
+                InputStream inputStream = socket.getInputStream();
+                DataInputStream dataInputStream = new DataInputStream(inputStream);
+                System.out.println(dataInputStream.readUTF());
 
                 // 스트림과 소켓을 닫아준다.
                 dos.close();
+                dataInputStream.close();
                 socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
